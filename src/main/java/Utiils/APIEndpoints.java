@@ -7,7 +7,8 @@ public enum APIEndpoints {
     showUser("users/{id}"),
     createUser("users"),
     updateUser("users/{id}"),
-    deleteUser("users/{id}");
+    deleteUser("users/{id}"),
+    searchVulnerabilities("vulnerabilities/search/");
 
     private final String resource;
 
