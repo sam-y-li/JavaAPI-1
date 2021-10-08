@@ -32,7 +32,6 @@ public class RestUtils {
         builder = new RequestSpecBuilder();
         builder.setBaseUri(prop.getProperty("BaseURL"));
         builder.setContentType(ContentType.JSON);
-        builder.setRelaxedHTTPSValidation();
         builder.addHeader("X-Risk-Token", prop.getProperty("APIKey"));
         Request = given()
                 .spec(builder.build());

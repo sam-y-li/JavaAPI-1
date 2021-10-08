@@ -14,8 +14,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -35,6 +35,16 @@
       <artifactId>testng</artifactId>
       <version>7.4.0</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20210307</version>
     </dependency>
   </dependencies>
 
@@ -58,6 +68,23 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
+                              <configuration>
+                                  <argLine>
+                                      -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar"
+                                  </argLine>
+
+                                  <suiteXmlFiles>
+                                      <suiteXmlFile>testng.xml</suiteXmlFile>
+                                  </suiteXmlFiles>
+
+                              </configuration>
+                              <dependencies>
+                                  <dependency>
+                                      <groupId>org.aspectj</groupId>
+                                      <artifactId>aspectjweaver</artifactId>
+                                      <version>1.9.6</version>
+                                  </dependency>
+                              </dependencies>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
